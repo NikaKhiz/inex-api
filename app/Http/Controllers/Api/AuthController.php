@@ -26,7 +26,7 @@ class AuthController extends Controller
 	public function login(LoginRequest $request): JsonResponse
 	{
 		if (!$this->authRepository->login($request)) {
-			return response()->json(['error' => ['email' => 'provided credentials are incorrect.']], 401);
+			return response()->json(['errors' => ['email' => 'provided credentials are incorrect.']], 401);
 		}
 		return response()->json('', 200);
 	}
