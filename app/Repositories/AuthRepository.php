@@ -11,4 +11,9 @@ class AuthRepository implements AuthRepositoryInterface
 	{
 		User::create([...$request->validated(), 'password' => bcrypt($request->password)]);
 	}
+
+	public function login($request): bool
+	{
+		return auth()->attempt($request->validated());
+	}
 }
