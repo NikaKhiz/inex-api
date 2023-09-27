@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Interfaces\AuthRepositoryInterface;
+use App\Models\User;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -28,6 +30,8 @@ class AuthController extends Controller
 		if (!$this->authRepository->login($request)) {
 			return response()->json(['errors' => ['email' => 'provided credentials are incorrect.']], 401);
 		}
-		return response()->json('', 200);
+		$user = User::find(Auth::user()->id);
+		$token = $user->createToken('access_token')->accessToken;
+		return response()->json(['access_token' => $token,  'user' => auth()->user()], 201);
 	}
 }
