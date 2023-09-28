@@ -8,6 +8,7 @@ use App\Http\Requests\RegisterRequest;
 use App\Interfaces\AuthRepositoryInterface;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
@@ -33,5 +34,11 @@ class AuthController extends Controller
 		$user = User::find(Auth::user()->id);
 		$token = $user->createToken('access_token')->accessToken;
 		return response()->json(['access_token' => $token,  'user' => auth()->user()], 201);
+	}
+
+	public function logout(Request $request): JsonResponse
+	{
+		$this->authRepository->logout($request);
+		return response()->json('', 204);
 	}
 }
