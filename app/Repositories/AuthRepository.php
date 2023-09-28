@@ -16,4 +16,9 @@ class AuthRepository implements AuthRepositoryInterface
 	{
 		return auth()->attempt($request->validated());
 	}
+
+	public function logout($request): void
+	{
+		$request->user()->token()->revoke();
+	}
 }
