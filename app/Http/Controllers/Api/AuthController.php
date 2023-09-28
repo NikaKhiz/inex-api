@@ -29,7 +29,7 @@ class AuthController extends Controller
 	public function login(LoginRequest $request): JsonResponse
 	{
 		if (!$this->authRepository->login($request)) {
-			return response()->json(['errors' => ['email' => 'provided credentials are incorrect.']], 401);
+			return response()->json(['errors' => ['email' => __('auth.failed')]], 401);
 		}
 		$user = User::find(Auth::user()->id);
 		$token = $user->createToken('access_token')->accessToken;
