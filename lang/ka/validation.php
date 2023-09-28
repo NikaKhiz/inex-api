@@ -46,10 +46,10 @@ return [
 	'distinct'          => 'The :attribute field has a duplicate value.',
 	'doesnt_end_with'   => 'The :attribute field must not end with one of the following: :values.',
 	'doesnt_start_with' => 'The :attribute field must not start with one of the following: :values.',
-	'email'             => ':attribute ველი უნდა იყოს ვალიდური მეილი.',
+	'email'             => ':attribute უნდა იყოს ვალიდური მეილი.',
 	'ends_with'         => 'The :attribute field must end with one of the following: :values.',
 	'enum'              => 'The selected :attribute is invalid.',
-	'exists'            => 'The selected :attribute is invalid.',
+	'exists'            => 'მითითებული :attribute არ მოიძებნა.',
 	'file'              => 'The :attribute field must be a file.',
 	'filled'            => 'The :attribute field must have a value.',
 	'gt'                => [
@@ -143,7 +143,7 @@ return [
 	'starts_with' => 'The :attribute field must start with one of the following: :values.',
 	'string'      => 'The :attribute field must be a string.',
 	'timezone'    => 'The :attribute field must be a valid timezone.',
-	'unique'      => 'ამ :attribute არჩევა შეუძლებელია.',
+	'unique'      => 'მითითებული :attribute უკვე არსებობს.',
 	'uploaded'    => 'The :attribute failed to upload.',
 	'uppercase'   => 'The :attribute field must be uppercase.',
 	'url'         => 'The :attribute field must be a valid URL.',
@@ -178,5 +178,5 @@ return [
 	|
 	*/
 
-	'attributes' => ['username' => 'მომხმარებლის', 'password' => 'პაროლის', 'email' => 'ელ-ფოსტის', 'password_confirmation' => 'გაიმეორეთ პაროლის'],
+	'attributes' => ['username' => 'მომხმარებელი', 'password' => 'პაროლის', 'email' => 'მეილი', 'password_confirmation' => 'გაიმეორეთ პაროლის'],
 ];
