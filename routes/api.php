@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:api')->group(function () {
-	Route::get('/user', function () {
-		return Auth::user();
-	});
+	Route::get('/user', [UserController::class, 'show'])->name('user.show');
 	Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
